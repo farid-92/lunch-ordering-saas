@@ -37,6 +37,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem "haml-rails", "~> 2.0"
+gem 'simple_form'
+gem 'devise'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
 group :development, :test do
   gem 'pry'
 end

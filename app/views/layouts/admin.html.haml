@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title LunchOrderingSaas
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'admin', 'data-turbolinks-track': 'reload'
+
+  %body{class: "hold-transition sidebar-mini pace-primary"}
+    .wrapper
+      = render partial: "layouts/admin/navbar"
+      = render partial: "layouts/admin/sidebar"
+      .content-wrapper
+        = yield
