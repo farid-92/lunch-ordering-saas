@@ -8,13 +8,9 @@ env:
 services:
   - postgresql
 before_script:
-  - sudo apt-get update
-  - sudo apt-get install language-pack-es
-  - sudo /etc/init.d/postgresql stop
-  - sudo /etc/init.d/postgresql start 9.3
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database lunch-ordering-saas_test;' -U postgres
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+
+# the script that runs your tests
 script:
-  - bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
+  - bundle exec rspec
