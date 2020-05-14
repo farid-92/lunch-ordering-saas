@@ -5,6 +5,8 @@ cache:
 bundler_args: "--without production --binstubs"
 env:
   - RAILS_ENV=test
+services:
+  - postgresql
 addons:
   postgresql: '9.3'
 before_script:
