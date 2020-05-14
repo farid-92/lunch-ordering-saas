@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: lunch-ordering-saas_test
+  username: postgres
