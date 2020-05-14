@@ -27,5 +27,10 @@ ActiveRecord::Schema.define(version: 2020_05_13_073231) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "organizations", force: :cascade do |t|
+    t.string "name", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
