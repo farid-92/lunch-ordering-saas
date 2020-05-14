@@ -43,6 +43,8 @@ gem 'devise'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'travis'
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
