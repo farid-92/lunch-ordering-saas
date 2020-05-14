@@ -1,0 +1,9 @@
+%form{:role => "form"}
+= simple_form_for [:admin, @organization] do |f|
+  .card-body
+    .form-group
+      %label{:for => "organization_name"} Name
+      = f.input :name, placeholder: 'Enter name', input_html: {class: 'form-control'}, label: false
+    .form-group
+  .card-footer
+    = f.submit local_assigns[:btn_name], class: 'btn btn-success'

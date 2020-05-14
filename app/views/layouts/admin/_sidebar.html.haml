@@ -1,0 +1,18 @@
+/ Main Sidebar Container
+%aside.main-sidebar.sidebar-dark-primary.elevation-4
+  / Sidebar
+  .sidebar
+    / Sidebar user (optional)
+    .user-panel.mt-3.pb-3.mb-3.d-flex
+      .image
+      .info
+        %a.d-block{:href => "#"} John Doe
+    / Sidebar Menu
+    %nav.mt-2
+      %ul.nav.nav-pills.nav-sidebar.flex-column{"data-accordion" => "false", "data-widget" => "treeview", :role => "menu"}
+        %li.nav-item
+          %a.nav-link{href: admin_organizations_path }
+            %i.nav-icon.far.fa-building
+            %p Organizations
+    / /.sidebar-menu
+  / /.sidebar
