@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  devise_for :admins
   devise_for :users
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
+    registrations: 'admins/registrations'
+  }
 
   namespace :admin do
     root to: 'organizations#index'
