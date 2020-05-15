@@ -9,6 +9,14 @@
           %i.fa.fa-heartbeat.fa-3x
         %h2 Coming soon
         %p We are currently working on a brand new website. Stay tuned!
+        %br
+        - if current_user
+          = current_user.name
+          %p
+            = link_to 'Выйти', destroy_user_session_path, method: :delete
+        - else
+          %p
+            %a{href: new_user_session_path} Авторизоваться
         %h3 Time left until launching
         .counter
           .days-wrapper
