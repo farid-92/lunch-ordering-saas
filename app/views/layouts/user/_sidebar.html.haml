@@ -1,0 +1,21 @@
+/ Main Sidebar Container
+%aside.main-sidebar.sidebar-dark-primary.elevation-4
+  / Sidebar
+  .sidebar
+    / Sidebar user (optional)
+    .user-panel.mt-3.pb-3.mb-3.d-flex
+      .image
+      .info
+        %a.d-block{:href => edit_user_path(current_user)}
+          = current_user.name
+          %i.fas.fa-pencil-alt.ml-2
+
+    / Sidebar Menu
+    %nav.mt-2
+      %ul.nav.nav-pills.nav-sidebar.flex-column{"data-accordion" => "false", "data-widget" => "treeview", :role => "menu"}
+        %li.nav-item
+          %a.nav-link{href: '#' }
+            %i.nav-icon.far.fa-building
+            %p Here will be some item
+    / /.sidebar-menu
+  / /.sidebar

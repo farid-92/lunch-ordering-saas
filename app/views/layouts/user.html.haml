@@ -10,7 +10,8 @@
 
   %body{class: "hold-transition sidebar-mini pace-primary"}
     .wrapper
-      = render partial: "layouts/admin/navbar"
-      = render partial: "layouts/admin/sidebar"
+      = render partial: "layouts/user/navbar"
+      = render partial: "layouts/user/sidebar"
       .content-wrapper
-        = yield
+        .content
+          = yield
