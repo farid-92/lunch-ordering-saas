@@ -44,6 +44,7 @@ gem 'devise'
 gem 'jquery-rails'
 
 gem 'travis'
+gem 'carrierwave', '~> 2.0'
 
 group :development, :test do
   gem 'dotenv-rails'
