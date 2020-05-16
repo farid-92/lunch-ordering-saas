@@ -15,6 +15,15 @@ namespace :db do
     category_1 = Category.create(title: 'first course', menu_id: menu.id)
     category_2 = Category.create(title: 'main course', menu_id: menu.id)
     category_3 = Category.create(title: 'drink', menu_id: menu.id)
+    menu_item = MenuItem.create(name: 'soup', category_id: category_1.id, price: rand(30..100))
+    menu_item_1 = MenuItem.create(name: 'soup 1', category_id: category_1.id, price: rand(30..100))
+    menu_item_1_2 = MenuItem.create(name: 'soup 2', category_id: category_1.id, price: rand(30..100))
+    menu_item_2 = MenuItem.create(name: 'lagman', category_id: category_2.id, price: rand(30..100))
+    menu_item_2_1 = MenuItem.create(name: 'chicken', category_id: category_2.id, price: rand(30..100))
+    menu_item_2_2 = MenuItem.create(name: 'plov', category_id: category_2.id, price: rand(30..100))
+    menu_item_3 = MenuItem.create(name: 'coca-cola', category_id: category_3.id, price: rand(30..100))
+    menu_item_3_1 = MenuItem.create(name: 'fanta', category_id: category_3.id, price: rand(30..100))
+    menu_item_3_2 = MenuItem.create(name: 'coffee', category_id: category_3.id, price: rand(30..100))
     puts 'Default testing info created'
 
     dummy :organizations, 10 do
