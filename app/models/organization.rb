@@ -1,5 +1,6 @@
 class Organization < ApplicationRecord
-  validates :name, presence: true
-
   has_many :users
+  has_many :menus
+
+  validates :name, presence: true
 end

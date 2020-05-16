@@ -16,6 +16,13 @@ namespace :db do
       organization.save!
     end
 
+    dummy :menus, 10 do
+      menu = Menu.new
+      menu.name = "menu"
+      menu.organization_id = rand(1..10)
+      menu.save!
+    end
+
     dummy :users, 10 do
       name = FFaker::Name.first_name
       user = User.new
