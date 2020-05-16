@@ -1,0 +1,13 @@
+- organizations.each_with_index do | organization, index|
+  %tr
+    %td
+      = index + 1
+    %td
+      = organization.name
+    %td.project-actions.text-right
+      = link_to edit_admin_organization_path(organization), class: 'btn btn-info btn-sm mr-1' do
+        %i.fas.fa-pencil-alt
+          Edit
+      = link_to admin_organization_path(organization), :method => 'delete', data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger' do
+        %i.fas.fa-trash
+          Delete

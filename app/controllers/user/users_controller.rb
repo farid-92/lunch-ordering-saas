@@ -2,7 +2,14 @@ class User::UsersController < ApplicationController
   layout 'user'
   before_action :authenticate_user!
 
+  def index
+    organization = current_user.organization
+    @users = User.where(organization_id: organization.id).where.not(id: current_user.id)
+  end
+
   def dashboard; end
+
+  def calendar;  end
 
   def edit; end
 
@@ -20,7 +27,7 @@ class User::UsersController < ApplicationController
   private
 
   def user_params
-    permit_params = [:name, :organization_id, :email]
+    permit_params = [:name, :organization_id, :email, :role]
     permit_params << [:password, :password_confirmation] if password_present?
     params.require(:user).permit(permit_params)
   end

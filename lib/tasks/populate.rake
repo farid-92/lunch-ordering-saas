@@ -15,6 +15,17 @@ namespace :db do
       organization.name = FFaker::Company.name
       organization.save!
     end
+
+    dummy :users, 10 do
+      name = FFaker::Name.first_name
+      user = User.new
+      user.name = name
+      user.email = name + '@example.com'
+      user.password = 'password'
+      user.organization_id = rand(1..10)
+      user.role = rand(0..1)
+      user.save!
+    end
   end
 
   def full_reset
