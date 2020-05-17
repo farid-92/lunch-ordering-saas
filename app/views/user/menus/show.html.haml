@@ -1,0 +1,12 @@
+%section.content-header
+  .container-fluid
+    .row.mb-2
+      .col-sm-6
+        %h1= @menu.name
+%ul
+  - @menu_categories.each do |category|
+    %li
+      %strong= category.title
+      %ul
+        - category.menu_items.each do |item|
+          %li= item.name

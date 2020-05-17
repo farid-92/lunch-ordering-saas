@@ -1,0 +1,10 @@
+- menus.each_with_index do | menu, index|
+  %tr
+    %td
+      = index + 1
+    %td
+      = menu.name
+    %td
+      = link_to menu_path(menu), class: 'btn btn-primary btn-sm mr-1' do
+        %i.fas.fa-folder
+          View

@@ -46,6 +46,8 @@ gem 'jquery-rails'
 gem 'travis'
 gem 'carrierwave', '~> 2.0'
 
+# interactor
+gem 'interactor-rails'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'

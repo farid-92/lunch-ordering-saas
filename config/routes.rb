@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     scope module: 'user' do
       root 'users#dashboard', as: 'user_root'
       resources :users, only: [:index, :edit, :update]
+      resources :menus, only: [:index, :show]
     end
   end
 
