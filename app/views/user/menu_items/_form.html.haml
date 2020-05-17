@@ -1,0 +1,17 @@
+= simple_form_for @menu_item, html: {role: 'form'} do |f|
+  .card-body
+    .form-group
+      %label{for: "menu_item_name"} Name
+      = f.input :name, placeholder: 'Enter name', input_html: {class: 'form-control'}, label: false
+    .form-group
+      %label{for: "menu_item_price"} Price
+      = f.input :price, placeholder: 'Enter price', input_html: {class: 'form-control'}, label: false
+    .form-group
+      %label{for: "menu_item_category_id"} Choose category
+      = f.input :category_id, collection: @menu_categories, input_html: {class: 'form-control'}, label: false ,include_blank: false
+    .form-group
+      %label{for: "menu_item_photo"} Photo
+      = f.input :photo, as: :file, label: false, input_html: {class: 'form-control', id: 'menu_item_photo'}
+
+  .card-footer
+    = f.submit local_assigns[:btn_name], class: 'btn btn-success'

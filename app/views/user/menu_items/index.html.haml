@@ -1,0 +1,40 @@
+%section.content
+  = link_to 'Add', new_menu_item_path(menu_id: @menu), :class => 'btn btn-outline-primary mb-2'
+  .card
+    %ul
+      - @menu_categories.each do |category|
+        %li
+          %h3= category.title.capitalize
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th{:style => "width: 1%"}
+                  \#
+                %th{:style => "width: 20%"}
+                  Name
+                %th{:style => "width: 20%"}
+                  Price
+                %th{:style => "width: 20%"}
+                  Photo
+                %th{:style => "width: 10%"}
+                  Actions
+
+            %tbody
+              - category.menu_items.each_with_index do |item, index|
+                %tr
+                  %td
+                    = index + 1
+                  %td
+                    = item.name
+                  %td
+                    = item.price
+                  %td
+                    - unless item.photo.url.nil?
+                      = image_tag item.photo.thumb.url
+                  %td.project-actions.text-right
+                    = link_to edit_menu_item_path(item,menu_id: @menu), class: 'btn btn-info btn-sm mr-1' do
+                      %i.fas.fa-pencil-alt
+                        Edit
+                    = link_to menu_item_path(item), :method => 'delete', data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger' do
+                      %i.fas.fa-trash
+                        Delete

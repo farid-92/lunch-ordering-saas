@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       root 'users#dashboard', as: 'user_root'
       resources :users, only: [:index, :edit, :update]
       resources :menus, only: [:index, :show]
+      resources :menu_items
     end
   end
 

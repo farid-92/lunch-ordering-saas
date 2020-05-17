@@ -6,6 +6,7 @@
 
 .idea
 .env
+/public
 
 # Ignore bundler config.
 /.bundle
