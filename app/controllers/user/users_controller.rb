@@ -1,6 +1,4 @@
-class User::UsersController < ApplicationController
-  layout 'user'
-  before_action :authenticate_user!
+class User::UsersController < DashboardController
 
   def index
     organization = current_user.organization

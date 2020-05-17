@@ -1,5 +1,4 @@
-class User::MenuItemsController < ApplicationController
-  layout 'user'
+class User::MenuItemsController < DashboardController
   before_action :set_menu_item, except: [:index]
 
   def index; end

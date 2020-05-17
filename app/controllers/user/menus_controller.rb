@@ -1,6 +1,4 @@
-class User::MenusController < ApplicationController
-  layout 'user'
-  before_action :authenticate_user!
+class User::MenusController < DashboardController
 
   def index
     @menus = current_user.organization.menus
