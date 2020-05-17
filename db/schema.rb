@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_184910) do
+ActiveRecord::Schema.define(version: 2020_05_17_184036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,24 @@ ActiveRecord::Schema.define(version: 2020_05_16_184910) do
     t.index ["organization_id"], name: "index_menus_on_organization_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.string "name", default: ""
+    t.decimal "price", precision: 8, scale: 2
+    t.bigint "category_id"
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_order_items_on_category_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string "name", default: ""
     t.datetime "created_at", null: false
@@ -78,5 +96,8 @@ ActiveRecord::Schema.define(version: 2020_05_16_184910) do
   add_foreign_key "categories", "menus"
   add_foreign_key "menu_items", "categories"
   add_foreign_key "menus", "organizations"
+  add_foreign_key "order_items", "categories"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "users"
   add_foreign_key "users", "organizations"
 end

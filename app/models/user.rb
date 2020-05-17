@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :organization, optional: true
+  has_many :orders
 
   before_create :organization_admin_exists?
 
