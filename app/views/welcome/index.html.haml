@@ -3,40 +3,10 @@
     = image_tag("preloader.gif" , size: "64x64", alt: "")
 .coming-soon
   .container
-    .row
-      .span12
-        .logo
-          %i.fa.fa-heartbeat.fa-3x
-        %h2 Coming soon
-        %p We are currently working on a brand new website. Stay tuned!
-        %br
-        - if current_user
-          = current_user.name
-          %p
-            = link_to 'Выйти', destroy_user_session_path, method: :delete
-        - else
-          %p
-            %a{href: new_user_session_path} Авторизоваться
-        %h3 Time left until launching
-        .counter
-          .days-wrapper
-            %span.days
-            %br/
-            days
-          .hours-wrapper
-            %span.hours
-            %br/
-            hours
-          .minutes-wrapper
-            %span.minutes
-            %br/
-            minutes
-          .seconds-wrapper
-            %span.seconds
-            %br/
-            seconds
-.container
-  .span12.row
-    .copyright
-      Copyright © 2015 Company Name. Design by TemplateGarden, взято с
-      %a{:href => "http://bayguzin.ru"} bayguzin.ru
+    - if current_user
+      = current_user.name
+      %p
+        = link_to 'Выйти', destroy_user_session_path, method: :delete
+    - else
+      %p
+        %a{href: new_user_session_path} Авторизоваться
