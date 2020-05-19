@@ -24,6 +24,11 @@ namespace :db do
     menu_item_3 = MenuItem.create(name: 'coca-cola', category_id: category_3.id, price: rand(30..100))
     menu_item_3_1 = MenuItem.create(name: 'fanta', category_id: category_3.id, price: rand(30..100))
     menu_item_3_2 = MenuItem.create(name: 'coffee', category_id: category_3.id, price: rand(30..100))
+
+    order = Order.create(user_id: user.id)
+    order_item = order.order_items.create(name: 'soup', category_id: category_1.id, price: rand(30..100))
+    order_item_1 = order.order_items.create(name: 'lagman', category_id: category_2.id, price: rand(30..100))
+    order_item_2 = order.order_items.create(name: 'coffee', category_id: category_3.id, price: rand(30..100))
     puts 'Default testing info created'
 
     dummy :organizations, 10 do
@@ -48,6 +53,14 @@ namespace :db do
       user.organization_id = rand(1..10)
       user.role = rand(0..1)
       user.save!
+    end
+
+    drinks = %w{ coffee coca-cola fanta tea ice-tea}
+    dummy :order, 5 do
+      order = Order.create(user_id: rand(1..5))
+      order.order_items.create(name: 'soup', category_id: category_1.id, price: rand(30..100))
+      order.order_items.create(name: 'lagman', category_id: category_2.id, price: rand(30..100))
+      order.order_items.create(name: drinks[rand(4)], category_id: category_3.id, price: rand(30..100))
     end
 
   end

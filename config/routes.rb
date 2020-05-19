@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :edit, :update]
       resources :menus, only: [:index, :show]
       resources :menu_items
+      get 'orders', to: 'orders#index'
     end
   end
 
