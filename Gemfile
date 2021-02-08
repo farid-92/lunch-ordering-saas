@@ -44,7 +44,7 @@ gem 'devise'
 gem 'jquery-rails'
 
 gem 'travis'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 
 # interactor
 gem 'interactor-rails'
